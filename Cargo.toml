@@ -1,0 +1,9 @@
+[package]
+name = "nysh"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+whoami = "1.1.2"           # Retrieve the current user and environment.
+console = "0.14.1"            # A terminal and console abstraction for Rust
+colored = "2"

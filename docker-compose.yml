@@ -1,0 +1,7 @@
+version: '3'
+services:
+  nysh:
+    build: .
+    tty: true
+    volumes:
+      - .:/nysh
