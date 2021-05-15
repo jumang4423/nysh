@@ -9,8 +9,8 @@ use whoami;
 pub fn say_welcome() -> Result<(), io::Error> {
     let blue_color_res: Result<Color, ()> = "magenta".parse();
     println!(
-        "-> welcome to nysh the shell written in {}",
-        "RUST".color(blue_color_res.unwrap_or(Color::Blue)).bold(),
+        "-> welcome to nysh! is the shell written in {}",
+        "rust".color(blue_color_res.unwrap_or(Color::Blue)).bold(),
     );
     Ok(())
 }

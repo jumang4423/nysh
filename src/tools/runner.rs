@@ -1,6 +1,7 @@
 use super::parser;
 use super::super::nysh_builtin::is_builtin;
 use super::super::nysh_builtin::builtin_exit;
+use super::super::nysh_builtin::builtin_la;
 // command line tools
 use std::process::Command;
 
@@ -21,7 +22,12 @@ pub struct CommandRunner {
         }
 
         if is_builtin::is_builtin(&self.commands.command) {
-            builtin_exit::builtin_exit();
+            if self.commands.command == "exit" {
+                builtin_exit::builtin_exit();
+            }
+            else if self.commands.command == "la" {
+                builtin_la::builtin_la();
+            }
             return
         }
 

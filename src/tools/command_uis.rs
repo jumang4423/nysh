@@ -1,14 +1,6 @@
 use std::io;
 
 pub fn get_emoji(emoji_number: usize) -> String {
-    // - Emoji receiver usage
-    // use console::Emoji;
-    // use rand::thread_rng;
-    // use rand::Rng;
-    //     // let _emoji_keys: usize = rng.gen_range(0..5);
-    //     // Emoji(&tools::command_uis::get_emoji(_emoji_keys), ""),
-    //     // let mut rng = thread_rng();
-
     let emojis = ["💓", "👀", "🚗", "💰", "🍔", "🌸"];
     String::from(emojis[emoji_number])
 }

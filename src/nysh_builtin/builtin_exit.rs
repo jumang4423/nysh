@@ -1,8 +1,9 @@
 use std::process::exit;
 use futures::executor::block_on;
+use console::Emoji;
 
 pub async fn exit_process() {
-    println!("-! bye!");
+    println!("-! bye{}", Emoji("🐶", ""));
     exit(1);
 }
 

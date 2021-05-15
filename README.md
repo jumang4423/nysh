@@ -20,15 +20,25 @@ chmod +x scripts/install.sh
 ./scripts/install.sh
 ```
 
-this will install nysh into ~/.nysh
-
 default, this script add path **both bash/zsh & fish**
 
-## usage
+## how to launch
+
+nysh will be installed into ~/.nysh, so path through it or...
 
 - ```nysh``` 
 
     launch nysh on ur main shell
+
+## buildin commands
+
+- ```la``` 
+
+    equals to ```ls -al```
+
+- ```exit``` 
+
+    exit the shell really safely
 
 
 ## doesn't work? 
@@ -81,11 +91,23 @@ chmod +x scripts/install.sh
 
 デフォルトでは **bash zsh & fish** にパスが通ります
 
-## 使い方
+## 起動方法
+
+nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よって、その場所をパスに通すもしくは...
 
 - ```nysh``` 
 
     おてもとのシェルでこれを実行するとnyshが起動します
+
+## nyshお手製コマンド
+
+- ```la``` 
+
+    ```ls -al```と同じ挙動
+
+- ```exit``` 
+
+    安全にnyshプロセスを終了します
 
 
 ## 動きません！
