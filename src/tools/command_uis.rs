@@ -1,32 +1,16 @@
-// OverAllTools Object //
-
-// - libraries
-use colored::*;
-use console::Emoji;
 use std::io;
-use whoami;
 
-// - welcome func
-pub fn say_welcome() -> Result<(), io::Error> {
-    let blue_color_res: Result<Color, ()> = "magenta".parse();
-    println!(
-        "{} welcome to nysh, the shell written in {}",
-        Emoji("🐶", ""),
-        "RUST".color(blue_color_res.unwrap_or(Color::Blue)).bold(),
-    );
-    Ok(())
-}
+pub fn get_emoji(emoji_number: usize) -> String {
+    // - Emoji receiver usage
+    // use console::Emoji;
+    // use rand::thread_rng;
+    // use rand::Rng;
+    //     // let _emoji_keys: usize = rng.gen_range(0..5);
+    //     // Emoji(&tools::command_uis::get_emoji(_emoji_keys), ""),
+    //     // let mut rng = thread_rng();
 
-// - login name func
-pub fn logined_as() -> Result<(), io::Error> {
-    let blue_color_res: Result<Color, ()> = "magenta".parse();
-    println!(
-        "-> logined as {}",
-        whoami::username()
-            .color(blue_color_res.unwrap_or(Color::Blue))
-            .bold()
-    );
-    Ok(())
+    let emojis = ["💓", "👀", "🚗", "💰", "🍔", "🌸"];
+    String::from(emojis[emoji_number])
 }
 
 // - show current directory func

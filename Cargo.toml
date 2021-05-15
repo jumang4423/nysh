@@ -4,6 +4,11 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
+maplit = "1.0.2"                 # Collection “literal” macros for HashMap, HashSet, BTreeMap, and BTreeSet.
 whoami = "1.1.2"           # Retrieve the current user and environment.
 console = "0.14.1"            # A terminal and console abstraction for Rust
 colored = "2"
+rand = "0.8.3"              # Random number generators and other randomness functionality.
+futures = "0.3.15"                # An implementation of futures and streams featuring zero allocations, composability, and itera…
+tokio = "1.6.0"                 # An event-driven, non-blocking I/O platform for writing asynchronous I/O backed applications.
+tokio-util = "0.6.7"          # Additional utilities for working with Tokio.
