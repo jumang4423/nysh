@@ -1,4 +1,3 @@
-
 // - check the given command is buildin or not
 pub fn is_builtin(command: &String) -> bool {
     let available = [
