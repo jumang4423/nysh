@@ -1,11 +1,12 @@
 /*
  * nysh shell by jumang
- * a really lightweight shell
+ * a cute shell
  * that written in rust lang
  */
 
  // - objects
 mod tools;
+mod nysh_builtin;
 // - generic input output thingy
 use std::env;
 use std::io::*;

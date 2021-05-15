@@ -1,4 +1,6 @@
 use super::parser;
+use super::super::nysh_builtin::is_builtin;
+use super::super::nysh_builtin::builtin_exit;
 // command line tools
 use std::process::Command;
 
@@ -14,10 +16,13 @@ pub struct CommandRunner {
     }
 
     pub fn run_command(&mut self) {
-
-
         if self.commands.command == "" {
-            println!("owari");
+            return
+        }
+
+        if is_builtin::is_builtin(&self.commands.command) {
+            builtin_exit::builtin_exit();
+            return
         }
 
         // wait
