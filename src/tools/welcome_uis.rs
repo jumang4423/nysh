@@ -7,21 +7,21 @@ use whoami;
 
 // - welcome func
 pub fn say_welcome() -> Result<(), io::Error> {
-    let blue_color_res: Result<Color, ()> = "magenta".parse();
+    let blue_color_res: Result<Color, ()> = "green".parse();
     println!(
         "-> welcome to nysh! is the shell written in {}",
-        "rust".color(blue_color_res.unwrap_or(Color::Blue)).bold(),
+        "rust".color(blue_color_res.unwrap_or(Color::Green)).bold(),
     );
     Ok(())
 }
 
 // - login name func
 pub fn logined_as() -> Result<(), io::Error> {
-    let blue_color_res: Result<Color, ()> = "magenta".parse();
+    let blue_color_res: Result<Color, ()> = "green".parse();
     println!(
-        "-! logined as {}",
+        "-! logined as {} currently",
         whoami::username()
-            .color(blue_color_res.unwrap_or(Color::Blue))
+            .color(blue_color_res.unwrap_or(Color::Green))
             .bold()
     );
     Ok(())
