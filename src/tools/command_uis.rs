@@ -17,7 +17,7 @@ pub fn path_abbr(path: String) -> Result<String, io::Error> {
     let mut _path: Vec<String> = path
         .split('/')
         // filter nothing char
-        .filter(|_temp| match _temp.chars().next() {
+        .filter(|_temp: &&str| match _temp.chars().next() {
             Some(_) => true,
             None => false,
         })

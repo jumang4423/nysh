@@ -4,9 +4,9 @@
  * that written in rust lang
  */
 
- // - objects
-mod tools;
+// - objects
 mod nysh_builtin;
+mod tools;
 // - generic input output thingy
 use std::env;
 use std::io::*;
@@ -18,20 +18,23 @@ use rand::Rng;
 
 // - main func
 fn main() {
+    // - say hi!
+    tools::welcome_uis::say_welcome().unwrap_or_else(|err: std::io::Error| {
+        eprintln!("IO error => {}", err);
+        exit(1);
+    });
+    tools::welcome_uis::logined_as().unwrap_or_else(|err: std::io::Error| {
+        eprintln!("IO error => {}", err);
+        exit(1);
+    });
+    // shell loops
+    loops();
+}
+
+pub fn loops() {
     // - vars
     // drawing emoji
     let mut rng = thread_rng();
-
-    // - say hi!
-    tools::welcome_uis::say_welcome().unwrap_or_else(|err| {
-        eprintln!("IO error => {}", err);
-        exit(1);
-    });
-    tools::welcome_uis::logined_as().unwrap_or_else(|err| {
-        eprintln!("IO error => {}", err);
-        exit(1);
-    });
-
     // - shell loops
     loop {
         // - cummand waiter

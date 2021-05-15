@@ -21,7 +21,7 @@ impl CommandParser {
     self.command = _commands[self._where].to_string();
     self._where += 1;
 
-    if let Some(pos) = _commands.iter().position(|x| *x == self.command) {
+    if let Some(pos) = _commands.iter().position(|x: &&str| *x == self.command) {
       _commands.remove(pos);
     }
 
