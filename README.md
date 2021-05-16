@@ -32,9 +32,21 @@ nysh will be installed into ~/.nysh, so path through it or...
 
 ## buildin commands
 
+- ```help``` 
+
+    help tool
+
 - ```la``` 
 
     equals to ```ls -al```
+
+- ```cd``` 
+
+    change directory
+
+- ```..``` 
+
+    equals to ```cd ..```
 
 - ```exit``` 
 
@@ -101,13 +113,25 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
 ## nyshお手製コマンド
 
+- ```help``` 
+
+    ヘルプの表示
+
 - ```la``` 
 
-    ```ls -al```と同じ挙動
+    ```ls -al```
+
+- ```cd``` 
+
+    ディレクトリの変更
+
+- ```..``` 
+
+    ```cd ..```
 
 - ```exit``` 
 
-    安全にnyshプロセスを終了します
+    安全にシェルを終了
 
 
 ## 動きません！
