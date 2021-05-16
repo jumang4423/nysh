@@ -1,3 +1,5 @@
+extern crate regex;
+
 pub struct CommandParser {
   _oirinal_line: String,
   _where: usize,
@@ -15,8 +17,37 @@ impl CommandParser {
     }
   }
 
+  pub fn strings_parse(&mut self) {
+    let mut cs: Vec<char> = self._oirinal_line.chars().collect();
+    // let mut _cs: Vec<char>;
+    let mut _isbeen_string: bool = false;
+
+    cs = cs
+      .iter()
+      .map(|&n| {
+        if n == '"' {
+          _isbeen_string = !_isbeen_string;
+        }
+
+        if _isbeen_string {
+          match n {
+            ' ' => return '_',
+            _ => n,
+          }
+        } else {
+          n
+        }
+      })
+      .collect();
+
+    self._oirinal_line = cs.into_iter().collect()
+  }
+
   pub fn parse_it(&mut self) {
     self._oirinal_line.remove(self._oirinal_line.len() - 1);
+    // remove space from original line
+    self.strings_parse();
+
     let mut _commands: Vec<&str> = self._oirinal_line.split(" ").collect();
     self.command = _commands[self._where].to_string();
     self._where += 1;

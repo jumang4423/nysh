@@ -3,7 +3,7 @@
 ![README LOGO](_img/bk.png)
 # nysh | nyu shell
 
-a cute shell that written in RUST
+a cute shell that written in rust
 
 <h1 align="left" id="english"> 🇺🇸english<h1>
 
