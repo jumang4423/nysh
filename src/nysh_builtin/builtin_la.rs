@@ -8,6 +8,14 @@ pub fn builtin_la() {
         .arg("-al")
         .stdout(Stdio::piped())
         .output()
-        .expect("nysh: command not found");
+        .expect("ls not found");
     print!("{}", String::from_utf8_lossy(&output.stdout));
+
+    // match output {
+    //     Ok(d) => {
+    //         print!("{}", String::from_utf8_lossy(&output.stdout));
+    //         Ok(())
+    //     }
+    //     Err(_) => println!("-! {} ls command not found...", "ops!".red()),
+    // }
 }

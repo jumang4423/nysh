@@ -65,7 +65,7 @@ pub fn loops() {
         let mut commands = tools::parser::CommandParser::constructor(waiter);
         commands.parse_it();
 
-        let mut runner = tools::runner::CommandRunner::constructor(commands);
+        let mut runner = tools::runner::CommandRunner::constructor(commands).unwrap();
         runner.run_command();
     }
 }

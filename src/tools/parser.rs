@@ -40,7 +40,7 @@ impl CommandParser {
       })
       .collect();
 
-    self._oirinal_line = cs.into_iter().collect()
+    self._oirinal_line = cs.into_iter().collect();
   }
 
   pub fn parse_it(&mut self) {

@@ -7,7 +7,7 @@ use whoami;
 
 // - welcome func
 pub fn say_welcome() -> Result<(), io::Error> {
-    let blue_color_res: Result<Color, ()> = "green".parse();
+    let blue_color_res: Result<Color, ()> = "magenta".parse();
     println!(
         "-> welcome to nysh! is the shell written in {}",
         "rust".color(blue_color_res.unwrap_or(Color::Green)).bold(),
@@ -17,7 +17,7 @@ pub fn say_welcome() -> Result<(), io::Error> {
 
 // - login name func
 pub fn logined_as() -> Result<(), io::Error> {
-    let blue_color_res: Result<Color, ()> = "green".parse();
+    let blue_color_res: Result<Color, ()> = "magenta".parse();
     println!(
         "-! logined as {} currently",
         whoami::username()
