@@ -8,6 +8,39 @@ pub fn get_emoji(emoji_number: usize) -> String {
     String::from(emojis[emoji_number])
 }
 
+// // - show current directory func
+// pub fn path_abbr_original(path: String) -> Result<String, io::Error> {
+//     // string to splitted by / and translates into Option<char> iterator
+//     let current_folder: &str;
+//     match path.split('/').last() {
+//         Some(d) => current_folder = d,
+//         None => current_folder = "invalid",
+//     }
+
+//     let mut _path: Vec<String> = path
+//         .split('/')
+//         // filter nothing char
+//         .filter(|_temp: &&str| match _temp.chars().next() {
+//             Some(_) => true,
+//             None => false,
+//         })
+//         // filter nothing &str to char
+//         .map(|_temp| match _temp.chars().next() {
+//             Some(d) => {
+//                 return String::from(d);
+//             }
+//             None => return String::from(""),
+//         })
+//         .collect();
+
+//     // concating current directory and others on really dirty way
+//     let mut _str: String;
+//     _path.pop();
+//     _str = _path.join("/") + "/" + current_folder;
+
+//     Ok(_str)
+// }
+
 // - show current directory func
 pub fn path_abbr(path: String) -> Result<String, io::Error> {
     // string to splitted by / and translates into Option<char> iterator
@@ -27,7 +60,7 @@ pub fn path_abbr(path: String) -> Result<String, io::Error> {
         // filter nothing &str to char
         .map(|_temp| match _temp.chars().next() {
             Some(_) => {
-                return String::from(&_temp[0.._temp.len() % 10]);
+                return String::from(&_temp[0..1]); //&_temp[0.._temp.len() % 10 // original
             }
             None => return String::from(""),
         })
@@ -38,7 +71,7 @@ pub fn path_abbr(path: String) -> Result<String, io::Error> {
     _path.pop();
 
     _str = format!(
-        "{} {} {} {}",
+        "{} {}{} {}",
         (if _path.len() > 2 {
             "🏠".to_string()
         } else {
@@ -65,7 +98,7 @@ fn check_folder_git() -> String {
             let mut content = String::new();
             git_head.read_to_string(&mut content).unwrap();
             let refs: Vec<&str> = content.split("/").collect();
-           output=format!("🐙  {}" ,&refs[refs.len() - 1][..refs[refs.len() - 1].len()-1]);
+           output=format!("🐙 → {}" ,&refs[refs.len() - 1][..refs[refs.len() - 1].len()-1]);
         }
         None => {}
     };
