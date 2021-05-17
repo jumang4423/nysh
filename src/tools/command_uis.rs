@@ -71,9 +71,9 @@ pub fn path_abbr(path: String) -> Result<String, io::Error> {
     _path.pop();
 
     _str = format!(
-        "{} {}{} {}",
+        "{}{}{} {}",
         (if _path.len() > 2 {
-            "🏠".to_string()
+            "🏠 ".to_string()
         } else {
             "".to_string()
         }),
