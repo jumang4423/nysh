@@ -1,9 +1,25 @@
+<!-- DO NOT REMOVE - contributor_list:data:start:["jumang4423", "ranon-rat"]:end -->
+
 <h1 align="center"> <a href="#english">english</a> |<a href="#japanese">日本語</a></h1>
 
 ![README LOGO](_img/bk.png)
 # nysh | nyu shell
 
+[![Contributor List](https://github.com/jumang4423/nysh/actions/workflows/contributor_list.yml/badge.svg)](https://github.com/jumang4423/nysh/actions/workflows/contributor_list.yml)
+
 a cute shell thingy that written in rust
+
+<!-- prettier-ignore-start -->
+<!-- DO NOT REMOVE - contributor_list:start -->
+## 👥 Contributors
+
+
+- **[@jumang4423](https://github.com/jumang4423)**
+
+- **[@ranon-rat](https://github.com/ranon-rat)**
+
+<!-- DO NOT REMOVE - contributor_list:end -->
+<!-- prettier-ignore-end -->
 
 <h1 align="left" id="english"> 🇺🇸english<h1>
 
