@@ -65,18 +65,26 @@ impl CommandRunner {
             return;
         }
 
-        let mut child = Command::new(&self.commands.command)
+        let child = Command::new(&self.commands.command)
             .args(&self.commands.args)
             .stdout(Stdio::piped())
-            .spawn()
-            .expect("process error => ?");
-        // stdout handler getter
-        let stdout = child.stdout.take().unwrap();
-        // stdout output stream transfter
-        let mut reader = FramedRead::new(stdout, LinesCodec::new());
+            .spawn();
 
-        while let Some(line) = reader.next().await {
-            println!("💓 {}", line.unwrap());
+        match child {
+            Ok(mut _read) => {
+                // stdout handler getter
+                let stdout = _read.stdout.take().unwrap();
+                // stdout output stream transfter
+                let mut reader = FramedRead::new(stdout, LinesCodec::new());
+
+                while let Some(line) = reader.next().await {
+                    match line {
+                        Ok(_read) => println!("{}", _read),
+                        Err(err) => println!("process error => {}", err),
+                    }
+                }
+            }
+            Err(err) => println!("{}", err),
         }
     }
 }

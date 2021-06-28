@@ -9,8 +9,8 @@ mod nysh_builtin;
 mod tools;
 // - generic input output thingy
 use std::env;
-use std::io::*;
 use std::io;
+use std::io::*;
 use std::process::exit;
 // - Emoji receiver usage
 use console::Emoji;
@@ -19,7 +19,7 @@ use rand::Rng;
 
 // - main func
 #[tokio::main]
-async fn main() -> io::Result<()>  {
+async fn main() -> io::Result<()> {
     // - say hi!
     tools::welcome_uis::say_welcome().unwrap_or_else(|err: std::io::Error| {
         eprintln!("IO error => {}", err);
@@ -36,12 +36,13 @@ async fn main() -> io::Result<()>  {
     Ok(())
 }
 
-pub async fn nysh_letsgooooooo(){
+pub async fn nysh_letsgooooooo() {
     // - vars
     // drawing emoji
     let mut rng = thread_rng();
     // - shell loops
     loop {
+
         // - cummand waiter
         // get current directory
         let _current_path_chr = env::current_dir().unwrap();
@@ -60,6 +61,7 @@ pub async fn nysh_letsgooooooo(){
             current_path,
             Emoji(&tools::command_uis::get_emoji(_emoji_keys), ""),
         );
+
         stdout().flush().unwrap();
 
         // listen to the user input
