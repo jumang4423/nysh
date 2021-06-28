@@ -10,6 +10,7 @@ mod tools;
 // - generic input output thingy
 use std::env;
 use std::io::*;
+use std::io;
 use std::process::exit;
 // - Emoji receiver usage
 use console::Emoji;
@@ -17,7 +18,8 @@ use rand::thread_rng;
 use rand::Rng;
 
 // - main func
-fn main() {
+#[tokio::main]
+async fn main() -> io::Result<()>  {
     // - say hi!
     tools::welcome_uis::say_welcome().unwrap_or_else(|err: std::io::Error| {
         eprintln!("IO error => {}", err);
@@ -28,10 +30,13 @@ fn main() {
         exit(1);
     });
     // shell loops
-    loops();
+    {
+        nysh_letsgooooooo().await;
+    }
+    Ok(())
 }
 
-pub fn loops() {
+pub async fn nysh_letsgooooooo(){
     // - vars
     // drawing emoji
     let mut rng = thread_rng();
@@ -66,6 +71,6 @@ pub fn loops() {
         commands.parse_it();
 
         let mut runner = tools::runner::CommandRunner::constructor(commands).unwrap();
-        runner.run_command();
+        runner.run_command().await;
     }
 }

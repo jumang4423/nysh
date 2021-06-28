@@ -1,13 +1,19 @@
 use super::super::nysh_builtin::builtin_cd;
 use super::super::nysh_builtin::builtin_dotdot;
 use super::super::nysh_builtin::builtin_exit;
-use super::super::nysh_builtin::builtin_la;
 use super::super::nysh_builtin::builtin_help;
+use super::super::nysh_builtin::builtin_la;
 use super::super::nysh_builtin::is_builtin;
 use super::parser;
 // command line tools
 use colored::*;
-use std::process::Command;
+// use std::process::Command;
+
+// tokio runner
+use futures::prelude::*;
+use std::process::Stdio;
+use tokio::process::Command;
+use tokio_util::codec::{FramedRead, LinesCodec};
 
 pub struct CommandRunner {
     pub commands: parser::CommandParser,
@@ -20,7 +26,7 @@ impl CommandRunner {
         })
     }
 
-    pub fn run_command(&mut self) {
+    pub async fn run_command(&mut self) {
         if self.commands.command == "" {
             return;
         }
@@ -39,7 +45,6 @@ impl CommandRunner {
                         Ok(()) => println!(" ↓"),
                         Err(d) => println!("-! {}", d.red()),
                     };
-                    // TODO make cd command
                 }
                 ".." => {
                     builtin_dotdot::builtin_dotdot(&mut self.commands);
@@ -47,10 +52,8 @@ impl CommandRunner {
                         Ok(()) => println!(" ↓"),
                         Err(d) => println!("-! {}", d.red()),
                     };
-                    // TODO make cd command
                 }
                 "help" => {
-                    
                     match builtin_help::builtin_help() {
                         Ok(()) => return,
                         Err(d) => println!("-! {}", d.red()),
@@ -62,13 +65,27 @@ impl CommandRunner {
             return;
         }
 
-        // wait
-        let mut _output = Command::new(&self.commands.command)
+        // // wait
+        // let mut _output = Command::new(&self.commands.command)
+        //     .args(&self.commands.args)
+        //     .output();
+        // match _output {
+        //     Ok(d) => print!("{}", String::from_utf8_lossy(&d.stdout)),
+        //     Err(_) => println!("-! {} ", "ops! command not found...".red()),
+        // }
+
+        let mut child = Command::new(&self.commands.command)
             .args(&self.commands.args)
-            .output();
-        match _output {
-            Ok(d) => print!("{}", String::from_utf8_lossy(&d.stdout)),
-            Err(_) => println!("-! {} ", "ops! command not found...".red()),
+            .stdout(Stdio::piped())
+            .spawn()
+            .expect("failed to start sleep");
+        // stdout handler getter
+        let stdout = child.stdout.take().unwrap();
+        // stdout output stream transfter
+        let mut reader = FramedRead::new(stdout, LinesCodec::new());
+
+        while let Some(line) = reader.next().await {
+            println!("{}", line.unwrap());
         }
     }
 }
