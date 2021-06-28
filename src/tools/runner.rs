@@ -65,15 +65,6 @@ impl CommandRunner {
             return;
         }
 
-        // // wait
-        // let mut _output = Command::new(&self.commands.command)
-        //     .args(&self.commands.args)
-        //     .output();
-        // match _output {
-        //     Ok(d) => print!("{}", String::from_utf8_lossy(&d.stdout)),
-        //     Err(_) => println!("-! {} ", "ops! command not found...".red()),
-        // }
-
         let mut child = Command::new(&self.commands.command)
             .args(&self.commands.args)
             .stdout(Stdio::piped())
