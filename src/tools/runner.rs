@@ -69,14 +69,14 @@ impl CommandRunner {
             .args(&self.commands.args)
             .stdout(Stdio::piped())
             .spawn()
-            .expect("failed to start sleep");
+            .expect("process error => ?");
         // stdout handler getter
         let stdout = child.stdout.take().unwrap();
         // stdout output stream transfter
         let mut reader = FramedRead::new(stdout, LinesCodec::new());
 
         while let Some(line) = reader.next().await {
-            println!("{}", line.unwrap());
+            println!("💓 {}", line.unwrap());
         }
     }
 }
