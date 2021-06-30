@@ -66,7 +66,8 @@ pub async fn nysh_letsgooooooo() {
 
         // listen to the user input
         let mut waiter = String::new();
-        stdin().read_line(&mut waiter).expect("input error => ?");
+
+        waiter = tools::input::input(waiter);
 
         // parse command into command object
         let mut commands = tools::parser::CommandParser::constructor(waiter);
