@@ -8,6 +8,7 @@ pub fn builtin_help() -> Result<(), String> {
     println!("-! {}: change directory", "cd".magenta());
     println!("-! {}: ls -al","la".magenta());
     println!("-! {}: cd ..","..".magenta());
+    println!("-! {}: make a secret contents locker", "dream95".magenta());
     println!("-! {}: help nysh","help".magenta());
     println!("-! {}: exit nysh","exit".magenta());
 

@@ -1,5 +1,6 @@
 use super::super::nysh_builtin::builtin_cd;
 use super::super::nysh_builtin::builtin_dotdot;
+use super::super::nysh_builtin::builtin_dream95;
 use super::super::nysh_builtin::builtin_exit;
 use super::super::nysh_builtin::builtin_help;
 use super::super::nysh_builtin::builtin_la;
@@ -31,14 +32,14 @@ impl CommandRunner {
             return;
         }
 
-        if is_builtin::is_builtin(&self.commands.command) {
+        if is_builtin::is_builtin(&mut self.commands.command) {
             let _com: &str = &self.commands.command;
             match _com {
                 "exit" => {
                     builtin_exit::builtin_exit();
                 }
                 "la" => {
-                    builtin_la::builtin_la();
+                    builtin_la::builtin_la().await;
                 }
                 "cd" => {
                     match builtin_cd::builtin_cd(&self.commands) {
@@ -59,27 +60,31 @@ impl CommandRunner {
                         Err(d) => println!("-! {}", d.red()),
                     };
                 }
+                "dream95" => {
+                    builtin_dream95::builtin_dream95();
+                }
                 _ => return,
             }
-
             return;
         }
 
+        self.async_runner().await;
+    }
+
+    pub async fn async_runner(&mut self) {
         let child = Command::new(&self.commands.command)
             .args(&self.commands.args)
             .stdout(Stdio::piped())
             .spawn();
-
         match child {
             Ok(mut _read) => {
                 // stdout handler getter
                 let stdout = _read.stdout.take().unwrap();
                 // stdout output stream transfter
                 let mut reader = FramedRead::new(stdout, LinesCodec::new());
-
                 while let Some(line) = reader.next().await {
                     match line {
-                        Ok(_read) => println!("{}", _read),
+                        Ok(_read) => println!("💓 {}", _read),
                         Err(err) => println!("process error => {}", err),
                     }
                 }

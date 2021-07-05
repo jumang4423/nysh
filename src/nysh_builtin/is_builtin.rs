@@ -5,7 +5,8 @@ pub fn is_builtin(command: &String) -> bool {
         "la".to_string(),
         "cd".to_string(),
         "..".to_string(),
-        "help".to_string()
+        "help".to_string(),
+        "dream95".to_string()
     ]
     .to_vec();
 
