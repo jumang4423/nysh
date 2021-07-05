@@ -52,6 +52,10 @@ nysh will be installed into ~/.nysh, so path through it or...
 
     help tool
 
+- ```dream95``` 
+
+    make a secret folder
+
 - ```la``` 
 
     equals to ```ls -al```
@@ -132,6 +136,10 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 - ```help``` 
 
     ヘルプの表示
+
+- ```dream95``` 
+
+　　秘密のフォルダーを作成    
 
 - ```la``` 
 
