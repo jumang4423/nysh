@@ -84,7 +84,7 @@ impl CommandRunner {
                 let mut reader = FramedRead::new(stdout, LinesCodec::new());
                 while let Some(line) = reader.next().await {
                     match line {
-                        Ok(_read) => println!("💓 {}", _read),
+                        Ok(_read) => println!("{}", _read),
                         Err(err) => println!("process error => {}", err),
                     }
                 }
