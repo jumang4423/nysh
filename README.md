@@ -46,6 +46,17 @@ nysh will be installed into ~/.nysh, so path through it or...
 
     launch nysh on ur main shell
 
+## blacklisted commands
+
+- ```find```
+
+    to avoid the dream95 injection
+
+- ```emacs```
+
+    i dont use emacs so use vim intead!
+
+
 ## buildin commands
 
 - ```help``` 
@@ -130,6 +141,16 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 - ```nysh``` 
 
     おてもとのシェルでこれを実行するとnyshが起動します
+
+## blacklisted commands
+
+- ```find```
+
+    to avoid the dream95 injection
+
+- ```emacs```
+
+    i dont use emacs so use vim intead!
 
 ## nyshお手製コマンド
 
