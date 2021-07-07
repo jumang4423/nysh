@@ -25,7 +25,7 @@ impl CommandRunner {
     pub fn constructor(command_object: parser::CommandParser) -> Result<Self, ()> {
         Ok(Self {
             commands: command_object,
-            black_list: ["find".to_string()].to_vec()
+            black_list: ["find".to_string(), "emacs".to_string()].to_vec()
         })
     }
 
@@ -35,12 +35,10 @@ impl CommandRunner {
         }
 
         for black in &self.black_list {
-
             if black.clone() == self.commands.command {
                 println!("the command is blacklisted.");
                 return;
             }
-
         }
 
         if is_builtin::is_builtin(&mut self.commands.command) {
