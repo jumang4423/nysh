@@ -1,8 +1,8 @@
 use colored::Colorize;
-use std::path::PathBuf;
-use std::io::prelude::*;
 use std::fs::{self, File};
 use std::io;
+use std::io::prelude::*;
+use std::path::PathBuf;
 pub fn get_emoji(emoji_number: usize) -> String {
     let emojis = ["😴", "🐱", "😋", "💰", "🐭", "☯️", "❤️"];
     String::from(emojis[emoji_number])
@@ -87,21 +87,22 @@ pub fn path_abbr(path: String) -> Result<String, io::Error> {
     Ok(_str)
 }
 fn check_folder_git() -> String {
-     
-    let mut output=String::new();
+    let mut output = String::new();
     let mut paths = fs::read_dir(".").unwrap();
     let path = paths.find(|path| path.as_ref().unwrap().path() == PathBuf::from("./.git"));
     match path {
         Some(_) => {
-            
             let mut git_head = File::open("./.git/HEAD").unwrap();
             let mut content = String::new();
             git_head.read_to_string(&mut content).unwrap();
             let refs: Vec<&str> = content.split("/").collect();
-           output=format!(" → {}" ,&refs[refs.len() - 1][..refs[refs.len() - 1].len()-1]);
+            output = format!(
+                " → {}",
+                &refs[refs.len() - 1][..refs[refs.len() - 1].len() - 1]
+            );
         }
         None => {}
     };
-    
-    return  output;
+
+    return output;
 }

@@ -57,7 +57,7 @@ pub fn put_hentai(hentai_file: &String, dir: &String, password: &String) -> Stri
     );
     match fs::copy(hentai_file, &joined) {
         Ok(_) => println!("file transfered correctly"),
-        Err(_) => println!("! no file or folder")
+        Err(_) => println!("! no file or folder"),
     }
 
     joined

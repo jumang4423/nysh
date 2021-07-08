@@ -11,7 +11,6 @@ pub fn is_builtin(command: &String) -> bool {
         "nsd".to_string(),
         "l".to_string(),
         "ll".to_string(),
-
     ]
     .to_vec();
 

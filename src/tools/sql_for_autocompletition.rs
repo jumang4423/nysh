@@ -13,13 +13,14 @@ pub fn insert_command(val: String) {
 }
 pub fn select_commands(val: String) -> String {
     let conn = Connection::open("src/database/database.db").unwrap();
-    let sql = "SELECT command FROM commands WHERE command like ?1 ORDER BY last_time_used DESC  LIMIT 1;";
+    let sql =
+        "SELECT command FROM commands WHERE command like ?1 ORDER BY last_time_used DESC  LIMIT 1;";
 
     let mut stm = conn.prepare(sql).unwrap();
     let mut rows = stm.query(params![val + "%"]).unwrap();
     let mut command_output = String::new();
     while let Some(row) = rows.next().unwrap() {
-        command_output=row.get(0).unwrap();
+        command_output = row.get(0).unwrap();
     }
     return command_output;
 }

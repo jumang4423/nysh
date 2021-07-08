@@ -1,6 +1,6 @@
-use std::process::exit;
-use futures::executor::block_on;
 use console::Emoji;
+use futures::executor::block_on;
+use std::process::exit;
 
 pub async fn exit_process() {
     println!("-! bye{}", Emoji("🐶", ""));
