@@ -74,7 +74,7 @@ impl CommandRunner {
                     builtin_dream95::builtin_dream95();
                 }
                 "nywer" => {
-                    builtin_nywer::builtin_nywer(self.commands.args[0].clone())
+                    builtin_nywer::builtin_nywer(self.commands.args.clone())
                 }
                 _ => return,
             }

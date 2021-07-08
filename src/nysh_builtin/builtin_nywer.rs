@@ -2,18 +2,20 @@
 // display images
 use viuer::{print_from_file, terminal_size, Config};
 
-pub fn builtin_nywer(file: String) {
-    if file == "" {
+pub fn builtin_nywer(args: Vec<String>) {
+    if args.len() != 1 {
         println!("give me at least one arg.");
         return;
     }
 
-    let (term_width, term_height) = terminal_size();
+    let (term_width, _) = terminal_size();
 
     let conf = Config {
         // set dimensions
-        width: Some(term_width as u32),
-        height: Some(term_height as u32),
+        x: (term_width / 2) - (term_width / 4),
+        y: 1,
+        width: Some(term_width as u32 / 2),
+        height: Some(term_width as u32 / 16),
         ..Default::default()
     };
 
@@ -22,8 +24,8 @@ pub fn builtin_nywer(file: String) {
     // note that the actual resolution in the terminal will be 80x50
 
     print!("\x1B[2J\x1B[1;1H");
-    match print_from_file(file, &conf) {
-        Ok(_) => return,
+    match print_from_file(args[0].clone(), &conf) {
+        Ok(_) => println!(""),
         Err(_) => println!("no file detected."),
     }
 }

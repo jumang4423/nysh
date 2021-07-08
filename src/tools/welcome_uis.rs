@@ -30,12 +30,14 @@ pub fn logined_as() -> Result<(), io::Error> {
 }
 
 pub fn logo_display() -> Result<(), io::Error> {
-    let (term_width, term_height) = terminal_size();
+    let (term_width, _) = terminal_size();
 
     let conf = Config {
         // set dimensions
+        x: (term_width / 2) - (term_width / 4),
+        y: 1,
         width: Some(term_width as u32 / 2),
-        height: Some(term_height as u32 / 4),
+        height: Some(term_width as u32 / 16),
         ..Default::default()
     };
     // starting from row 4 and column 20,
