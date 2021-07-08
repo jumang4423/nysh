@@ -1,7 +1,7 @@
 /*
- * nysh shell by jumang
+ * nyu shell by jumang
  * a cute shell
- * that written in rust lang
+ * that written in rust
  */
 
 // - objects
