@@ -1,8 +1,10 @@
 use std::fs;
 use std::io::*;
 use std::str::from_utf8;
+use super::super::tools::parser::CommandParser;
+use super::super::tools::runner::CommandRunner;
 
-pub fn builtin_dream95() {
+pub async fn builtin_dream95() {
     let password = scan_me("? enter password (length<=6):");
     let hentai = scan_me("? choose your secret(lol) file:");
     let dir = scan_me("? enter secret directory name:");
@@ -22,6 +24,13 @@ pub fn builtin_dream95() {
     );
     println!("> your dream at:");
     println!("> {}", put_hentai(&hentai, &dir, &password));
+
+    // put hidden flag
+    let mut commands = CommandParser::constructor(format!("touch {}/.flag\n", &dir));
+    commands.parse_it();
+    let mut runner = CommandRunner::constructor(commands).unwrap();
+    runner.async_runner().await;
+
     println!("> enjoy dream95 bruh :8)");
 }
 

@@ -53,14 +53,14 @@ impl CommandRunner {
                     builtin_la::builtin_la().await;
                 }
                 "cd" => {
-                    match builtin_cd::builtin_cd(&self.commands) {
+                    match builtin_cd::builtin_cd(&self.commands).await {
                         Ok(()) => println!(" ↓"),
                         Err(d) => println!("-! {}", d.red()),
                     };
                 }
                 ".." => {
                     builtin_dotdot::builtin_dotdot(&mut self.commands);
-                    match builtin_cd::builtin_cd(&self.commands) {
+                    match builtin_cd::builtin_cd(&self.commands).await {
                         Ok(()) => println!(" ↓"),
                         Err(d) => println!("-! {}", d.red()),
                     };
@@ -72,7 +72,7 @@ impl CommandRunner {
                     };
                 }
                 "dream95" => {
-                    builtin_dream95::builtin_dream95();
+                    builtin_dream95::builtin_dream95().await;
                 }
                 "nywer" => builtin_nywer::builtin_nywer(self.commands.args.clone()),
                 "nsd" => builtin_nsd::builtin_nsd(self.commands.args.clone()),

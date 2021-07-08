@@ -37,6 +37,7 @@ async fn main() -> io::Result<()> {
         eprintln!("IO error => {}", err);
         exit(1);
     });
+
     // shell loops
     {
         nysh_letsgooooooo().await;
