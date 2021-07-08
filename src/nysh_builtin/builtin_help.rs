@@ -3,6 +3,10 @@ use colored::*;
 pub fn builtin_help() -> Result<(), String> {
     println!("");
 
+    println!("-! new to nysh shell? ");
+    println!("-! nysh is just a cute shell written in rust!");
+    println!("");
+
     println!("-> available built-in commands:");
     println!("-! {}: change directory", "cd".magenta());
     println!("-! {}: simple ls", "nsd".magenta());
