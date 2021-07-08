@@ -5,10 +5,12 @@ cargo build
 echo "-! [1]copying..."
 # make directory
 mkdir -p ~/.nysh
+mkdir -p ~/.nysh/_img
 chmod +x ~/.nysh
 
 # move the binary
 cp target/debug/nysh ~/.nysh
+cp _img/lain.jpeg ~/.nysh/_img/lain.jpeg
 rm target/debug/nysh
 chmod +x ~/.nysh/nysh
 

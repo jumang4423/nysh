@@ -40,7 +40,14 @@ pub fn logo_display() -> Result<(), io::Error> {
     // starting from row 4 and column 20,
     // display `img.jpg` with dimensions 80x25 (in terminal cells)
     // note that the actual resolution in the terminal will be 80x50
-    print_from_file("_img/bk.png", &conf).expect("Image printing failed.");
+
+    let home_path: std::path::PathBuf = dirs::home_dir().unwrap();
+
+    print_from_file(
+        format!("{}/{}", home_path.clone().display(), ".nysh/_img/lain.jpeg"),
+        &conf,
+    )
+    .expect("Image printing failed.");
 
     Ok(())
 }
