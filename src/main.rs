@@ -26,6 +26,9 @@ async fn main() -> io::Result<()> {
         eprintln!("IO error => {}", err);
         exit(1);
     });
+
+    println!();
+
     // - say hi!
     tools::welcome_uis::say_welcome().unwrap_or_else(|err: std::io::Error| {
         eprintln!("IO error => {}", err);
