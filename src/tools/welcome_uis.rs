@@ -34,7 +34,7 @@ pub fn logo_display() -> Result<(), io::Error> {
 
     let conf = Config {
         // set dimensions
-        x: (term_width / 2) - (term_width / 4), // (term_width / 2) - (term_width / 6)
+        x: 1, // (term_width / 2) - (term_width / 6)
         y: 1,
         width: Some(term_width as u32 / 2),
         height: Some(term_width as u32 / 18),
