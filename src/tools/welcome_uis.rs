@@ -34,10 +34,10 @@ pub fn logo_display() -> Result<(), io::Error> {
 
     let conf = Config {
         // set dimensions
-        x: (term_width / 2) - (term_width / 4),
+        x: 1, // (term_width / 2) - (term_width / 6)
         y: 1,
-        width: Some(term_width as u32 / 2),
-        height: Some(term_width as u32 / 16),
+        width: Some(term_width as u32 / 3),
+        height: Some(term_width as u32 / 18),
         ..Default::default()
     };
     // starting from row 4 and column 20,
@@ -47,7 +47,7 @@ pub fn logo_display() -> Result<(), io::Error> {
     let home_path: std::path::PathBuf = dirs::home_dir().unwrap();
 
     print_from_file(
-        format!("{}/{}", home_path.clone().display(), ".nysh/_img/lain.jpeg"),
+        format!("{}/{}", home_path.clone().display(), ".nysh/_img/lain.gif"),
         &conf,
     )
     .expect("Image printing failed.");
