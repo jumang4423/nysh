@@ -4,10 +4,10 @@ use std::str::from_utf8;
 
 pub fn builtin_dream95() {
     let password = scan_me("? enter password (length<=6):");
-    let hentai = scan_me("? choose your secret file:");
+    let hentai = scan_me("? choose your secret(lol) file:");
     let dir = scan_me("? enter secret directory name:");
 
-    println!("> dream95 processing");
+    println!("> dream95 processing...");
     print!("> ");
 
     // make tons of directories (lol)
@@ -55,7 +55,10 @@ pub fn put_hentai(hentai_file: &String, dir: &String, password: &String) -> Stri
             .join("/"),
         hentai_file
     );
-    fs::copy(hentai_file, &joined).unwrap();
+    match fs::copy(hentai_file, &joined) {
+        Ok(_) => println!("file transfered correctly"),
+        Err(_) => println!("! no file or folder")
+    }
 
     joined
 }

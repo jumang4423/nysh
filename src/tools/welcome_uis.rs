@@ -34,8 +34,8 @@ pub fn logo_display() -> Result<(), io::Error> {
 
     let conf = Config {
         // set dimensions
-        width: Some(term_width as u32),
-        height: Some(term_height as u32 / 2),
+        width: Some(term_width as u32 / 2),
+        height: Some(term_height as u32 / 4),
         ..Default::default()
     };
     // starting from row 4 and column 20,
