@@ -10,7 +10,7 @@ chmod +x ~/.nysh
 
 # move the binary
 cp target/debug/nysh ~/.nysh
-cp _img/lain.jpeg ~/.nysh/_img/lain.jpeg
+cp _img/* ~/.nysh/_img/
 rm target/debug/nysh
 chmod +x ~/.nysh/nysh
 
