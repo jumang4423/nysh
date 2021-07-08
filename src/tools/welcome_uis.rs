@@ -5,7 +5,7 @@ use colored::*;
 use std::io;
 use whoami;
 // display images
-use viuer::{print_from_file, Config};
+use viuer::{print_from_file, terminal_size, Config};
 
 // - welcome func
 pub fn say_welcome() -> Result<(), io::Error> {
@@ -30,13 +30,14 @@ pub fn logined_as() -> Result<(), io::Error> {
 }
 
 pub fn logo_display() -> Result<(), io::Error> {
+    let (term_width, term_height) = terminal_size();
+
     let conf = Config {
         // set dimensions
-        width: Some(75),
-        height: Some(8),
+        width: Some(term_width as u32),
+        height: Some(term_height as u32 / 2),
         ..Default::default()
     };
-
     // starting from row 4 and column 20,
     // display `img.jpg` with dimensions 80x25 (in terminal cells)
     // note that the actual resolution in the terminal will be 80x50
