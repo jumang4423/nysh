@@ -4,7 +4,7 @@ use std::io::prelude::*;
 use std::fs::{self, File};
 use std::io;
 pub fn get_emoji(emoji_number: usize) -> String {
-    let emojis = ["💓", "👀", "🚗", "💰", "🍔", "🌸", "🐙"];
+    let emojis = ["😴", "🐱", "😋", "💰", "🐭", "☯️", "❤️"];
     String::from(emojis[emoji_number])
 }
 
@@ -98,7 +98,7 @@ fn check_folder_git() -> String {
             let mut content = String::new();
             git_head.read_to_string(&mut content).unwrap();
             let refs: Vec<&str> = content.split("/").collect();
-           output=format!("🐙 → {}" ,&refs[refs.len() - 1][..refs[refs.len() - 1].len()-1]);
+           output=format!(" → {}" ,&refs[refs.len() - 1][..refs[refs.len() - 1].len()-1]);
         }
         None => {}
     };

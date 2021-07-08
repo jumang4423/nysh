@@ -13,7 +13,6 @@ use std::io;
 use std::io::*;
 use std::process::exit;
 // - Emoji receiver usage
-use console::Emoji;
 use rand::thread_rng;
 use rand::Rng;
 
@@ -65,7 +64,7 @@ pub async fn nysh_letsgooooooo() {
         print!(
             "{} {} ",
             current_path,
-            Emoji(&tools::command_uis::get_emoji(_emoji_keys), ""),
+            tools::command_uis::get_emoji(_emoji_keys),
         );
 
         stdout().flush().unwrap();
