@@ -69,7 +69,7 @@ nysh will be installed into ~/.nysh, so path through it or...
 
 - ```nywer <filename>``` 
 
-    displays given image on terminal directory
+    displays given image on terminal directly
 
 - ```la``` 
 
@@ -168,7 +168,7 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
 - ```nywer <filename>``` 
 
-    displays given image on terminal directory
+    displays given image on terminal directly
 
 - ```la``` 
 
