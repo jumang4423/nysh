@@ -71,9 +71,17 @@ nysh will be installed into ~/.nysh, so path through it or...
 
     displays given image on terminal directly
 
-- ```la``` 
+- ```nsd``` 
 
-    equals to ```ls -al```
+    simple version of ls command
+
+- ```l``` 
+
+    nsd which just displays files and dircctries
+
+- ```ll``` 
+
+    nsd l which just displays more details
 
 - ```cd``` 
 
@@ -170,9 +178,17 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
     displays given image on terminal directly
 
-- ```la``` 
+- ```nsd``` 
 
-    ```ls -al```
+    simple version of ls command
+
+- ```l``` 
+
+    nsd which just displays files and dircctries
+
+- ```ll``` 
+
+    nsd l which just displays more details
 
 - ```cd``` 
 
