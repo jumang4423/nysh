@@ -4,6 +4,7 @@ use super::super::nysh_builtin::builtin_dream95;
 use super::super::nysh_builtin::builtin_exit;
 use super::super::nysh_builtin::builtin_help;
 use super::super::nysh_builtin::builtin_la;
+use super::super::nysh_builtin::builtin_nsd;
 use super::super::nysh_builtin::builtin_nywer;
 use super::super::nysh_builtin::is_builtin;
 use super::parser;
@@ -19,14 +20,14 @@ use tokio_util::codec::{FramedRead, LinesCodec};
 
 pub struct CommandRunner {
     pub commands: parser::CommandParser,
-    pub black_list: Vec<String> 
+    pub black_list: Vec<String>,
 }
 
 impl CommandRunner {
     pub fn constructor(command_object: parser::CommandParser) -> Result<Self, ()> {
         Ok(Self {
             commands: command_object,
-            black_list: ["find".to_string(), "emacs".to_string()].to_vec()
+            black_list: ["find".to_string(), "emacs".to_string()].to_vec(),
         })
     }
 
@@ -73,9 +74,10 @@ impl CommandRunner {
                 "dream95" => {
                     builtin_dream95::builtin_dream95();
                 }
-                "nywer" => {
-                    builtin_nywer::builtin_nywer(self.commands.args.clone())
-                }
+                "nywer" => builtin_nywer::builtin_nywer(self.commands.args.clone()),
+                "nsd" => builtin_nsd::builtin_nsd(self.commands.args.clone()),
+                "l" => builtin_nsd::builtin_nsd([].to_vec()),
+                "ll" => builtin_nsd::builtin_nsd(["l".to_string()].to_vec()),
                 _ => return,
             }
             return;
@@ -97,7 +99,7 @@ impl CommandRunner {
                 let mut reader = FramedRead::new(stdout, LinesCodec::new());
                 while let Some(line) = reader.next().await {
                     match line {
-                        Ok(_read) => println!(":) {}", _read),
+                        Ok(_read) => println!("❤️ {}", _read),
                         Err(err) => println!("process error => {}", err),
                     }
                 }

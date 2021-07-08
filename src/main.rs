@@ -63,7 +63,7 @@ pub async fn nysh_letsgooooooo() {
                 exit(1);
             }
         }
-        let _emoji_keys: usize = rng.gen_range(0..5);
+        let _emoji_keys: usize = rng.gen_range(0..7);
         print!(
             "{} {} ",
             current_path,
