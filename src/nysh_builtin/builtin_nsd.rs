@@ -57,7 +57,7 @@ pub fn printer(option: bool) {
             "[ext]".green()
         );
     } else {
-        println!("☯️ {0: <18}", "[sus]".green(),);
+        println!("🐱 {0: <18}", "[sus]".green(),);
     }
 
     // . ..
