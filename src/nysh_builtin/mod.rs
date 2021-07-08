@@ -4,4 +4,5 @@ pub mod builtin_cd;
 pub mod builtin_dotdot;
 pub mod builtin_help;
 pub mod builtin_dream95;
+pub mod builtin_nywer;
 pub mod is_builtin;

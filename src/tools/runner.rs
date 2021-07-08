@@ -4,6 +4,7 @@ use super::super::nysh_builtin::builtin_dream95;
 use super::super::nysh_builtin::builtin_exit;
 use super::super::nysh_builtin::builtin_help;
 use super::super::nysh_builtin::builtin_la;
+use super::super::nysh_builtin::builtin_nywer;
 use super::super::nysh_builtin::is_builtin;
 use super::parser;
 // command line tools
@@ -72,6 +73,9 @@ impl CommandRunner {
                 "dream95" => {
                     builtin_dream95::builtin_dream95();
                 }
+                "nywer" => {
+                    builtin_nywer::builtin_nywer(self.commands.args[0].clone())
+                }
                 _ => return,
             }
             return;
@@ -93,7 +97,7 @@ impl CommandRunner {
                 let mut reader = FramedRead::new(stdout, LinesCodec::new());
                 while let Some(line) = reader.next().await {
                     match line {
-                        Ok(_read) => println!("{}", _read),
+                        Ok(_read) => println!(":) {}", _read),
                         Err(err) => println!("process error => {}", err),
                     }
                 }

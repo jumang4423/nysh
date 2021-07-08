@@ -67,6 +67,10 @@ nysh will be installed into ~/.nysh, so path through it or...
 
     make a secret folder
 
+- ```nywer <filename>``` 
+
+    displays given image on terminal directory
+
 - ```la``` 
 
     equals to ```ls -al```
@@ -160,7 +164,11 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
 - ```dream95``` 
 
-　　秘密のフォルダーを作成    
+　　秘密のフォルダーを作成
+
+- ```nywer <filename>``` 
+
+    displays given image on terminal directory
 
 - ```la``` 
 

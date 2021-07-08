@@ -20,6 +20,13 @@ use rand::Rng;
 // - main func
 #[tokio::main]
 async fn main() -> io::Result<()> {
+
+    print!("\x1B[2J\x1B[1;1H");
+
+    tools::welcome_uis::logo_display().unwrap_or_else(|err: std::io::Error| {
+        eprintln!("IO error => {}", err);
+        exit(1);
+    });
     // - say hi!
     tools::welcome_uis::say_welcome().unwrap_or_else(|err: std::io::Error| {
         eprintln!("IO error => {}", err);
@@ -42,7 +49,6 @@ pub async fn nysh_letsgooooooo() {
     let mut rng = thread_rng();
     // - shell loops
     loop {
-
         // - cummand waiter
         // get current directory
         let _current_path_chr = env::current_dir().unwrap();
