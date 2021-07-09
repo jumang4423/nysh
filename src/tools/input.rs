@@ -5,3 +5,4 @@ pub fn input(mut waiter: String) -> String {
 
     return waiter;
 }
+
