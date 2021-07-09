@@ -8,16 +8,15 @@ version = "0.1.0"
 colored = "2" 
 console = "0.14.1" # A terminal and console abstraction for Rust
 dirs = "3.0.2" # A tiny low-level library that provides platform-specific standard locations of directories fo…
-futures = "0.3.15" # An implementation of futures and streams featuring zero allocations, composability, and itera…
-hyper = "0.14.7" # A fast and correct HTTP library.
+futures = "0.3.15" # An implementation of futures and streams featuring zero allocations, composability, and itera
 maplit = "1.0.2" # Collection “literal” macros for HashMap, HashSet, BTreeMap, and BTreeSet.
 mini-redis = "0.4" 
 rand = "0.8.3" # Random number generators and other randomness functionality.
 regex = "1.5.4" # An implementation of regular expressions for Rust. This implementation uses finite automata and g…
 rusqlite = "0.25.3"
-
 tokio = {version = "1.6.0", features = ["full"]} 
 tokio-util = {version = "0.6.7", features = ["full"]}# Additional utilities for working with Tokio.   
 whoami = "1.1.2" # Retrieve the current user and environment.
-
 viuer = "0.5.1"
+slack-hook = "0.7"
+libc = "0.2.98"

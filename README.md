@@ -96,6 +96,17 @@ nysh will be installed into ~/.nysh, so path through it or...
     exit the shell really safely
 
 
+## slack notification
+
+if someone entered your secret directory using nysh, nysh notifies to slack using slack bot webhook function.
+
+to do that, export our slack webhook URL like this...
+
+```
+DREAM95_SLACK_URL={your slack webhook url}
+```
+
+
 ## doesn't work? 
 try importing them into each shell settings:
 ### bash | zsh
@@ -180,15 +191,15 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
 - ```nsd``` 
 
-    simple version of ls command
+    lsの模擬品
 
 - ```l``` 
 
-    nsd which just displays files and dircctries
+    nsdのショートカットで普通に表示する
 
 - ```ll``` 
 
-    nsd l which just displays more details
+    nsd lのショートカットで詳細を表示する
 
 - ```cd``` 
 
@@ -202,6 +213,15 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
     安全にシェルを終了
 
+## slack通知
+
+誰かがシークレットフォルダーにnyshを使って侵入した場合、webhookを利用して通知をしてくれます！
+
+そうするためには以下のコマンドを実行してください...
+
+```
+DREAM95_SLACK_URL={webhookのURL}
+```
 
 ## 動きません！
 あなたのシェルに以下の記述を手動でおねがいします:
