@@ -38,7 +38,7 @@ pub async fn builtin_cd(commands: &CommandParser) -> Result<(), String> {
                 "! you cannot enter this directory. This incident will be reported to slack".red()
             );
 
-            tools::slack::slack_sender().await;
+            // tools::slack::slack_sender().await;
         } else {
             println!("{}", "! you cannot enter this directory".red());
             println!(
