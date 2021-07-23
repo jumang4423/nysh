@@ -46,7 +46,6 @@ pub fn dft_folder_maker(array: Vec<u8>, count_mut: usize, dir: &String) {
                     .map(|_temp| _temp.to_string())
                     .collect::<Vec<String>>()
                     .join("/");
-
             fs::create_dir_all(joined).unwrap();
             dft_folder_maker(new_array, count_mut - 1, &dir);
         }

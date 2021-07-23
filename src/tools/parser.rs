@@ -18,11 +18,11 @@ impl CommandParser {
   }
 
   pub fn strings_parse(&mut self) {
-    let mut cs: Vec<char> = self._oirinal_line.chars().collect();
+    let cs: Vec<char> = self._oirinal_line.chars().collect();
     // let mut _cs: Vec<char>;
     let mut _isbeen_string: bool = false;
 
-    cs = cs
+    self._oirinal_line = cs
       .iter()
       .map(|&n| {
         if n == '"' {
@@ -39,8 +39,6 @@ impl CommandParser {
         }
       })
       .collect();
-
-    self._oirinal_line = cs.into_iter().collect();
   }
 
   pub fn parse_it(&mut self) {
