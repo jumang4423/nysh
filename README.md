@@ -7,6 +7,7 @@
 
 [![Contributor List](https://github.com/jumang4423/nysh/actions/workflows/contributor_list.yml/badge.svg)](https://github.com/jumang4423/nysh/actions/workflows/contributor_list.yml)
 [![rust cargo test](https://github.com/jumang4423/nysh/actions/workflows/rust_cargo_test.yml/badge.svg?branch=main)](https://github.com/jumang4423/nysh/actions/workflows/rust_cargo_test.yml)
+
 a cute shell thingy that written in rust
 
 <!-- prettier-ignore-start -->
