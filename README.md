@@ -6,7 +6,7 @@
 # nysh | nyu shell
 
 [![Contributor List](https://github.com/jumang4423/nysh/actions/workflows/contributor_list.yml/badge.svg)](https://github.com/jumang4423/nysh/actions/workflows/contributor_list.yml)
-[![rust_test](https://github.com/jumang4423/nysh/actions/workflows/rust_test.yml/badge.svg?branch=main)](https://github.com/jumang4423/nysh/actions/workflows/rust_test.yml)
+[![rust cargo test](https://github.com/jumang4423/nysh/actions/workflows/rust_test.yml/badge.svg?branch=main)](https://github.com/jumang4423/nysh/actions/workflows/rust_test.yml)
 
 a cute shell thingy that written in rust
 
