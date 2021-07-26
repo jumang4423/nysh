@@ -1,5 +1,3 @@
-extern crate regex;
-
 pub struct CommandParser {
   _oirinal_line: String,
   _where: usize,
@@ -60,5 +58,30 @@ impl CommandParser {
       args.push(d.to_string());
     }
     self.args = args;
+  }
+}
+
+#[cfg(test)]
+mod tests {
+
+  use super::*;
+
+  #[test]
+  fn command_parser_no_arg() {
+    // parse command into command object
+    let mut commands = CommandParser::constructor("ls\n".to_owned());
+    commands.parse_it();
+    assert_eq!(commands.command, "ls".to_owned());
+    assert_eq!(commands.args.len(), 0);
+  }
+
+  #[test]
+  fn command_parser_one_arg() {
+    // parse command into command object
+    let mut commands = CommandParser::constructor("ls -al\n".to_owned());
+    commands.parse_it();
+    assert_eq!(commands.command, "ls".to_owned());
+    assert_eq!(commands.args[0], "-al".to_owned());
+    assert_eq!(commands.args.len(), 1);
   }
 }

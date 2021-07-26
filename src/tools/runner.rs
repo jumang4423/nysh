@@ -108,3 +108,23 @@ impl CommandRunner {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+
+    use super::parser::CommandParser;
+    use super::*;
+
+    #[test]
+    fn command_runner_blacklisted() {
+        // parse command into command object
+        let mut commands = CommandParser::constructor("ls\n".to_owned());
+        commands.parse_it();
+
+        let mut runner = CommandRunner::constructor(commands).unwrap();
+
+        assert_eq!(runner.black_list[1], "emacs".to_owned());
+        assert_eq!(runner.black_list[0], "find".to_owned());
+        
+    }
+}

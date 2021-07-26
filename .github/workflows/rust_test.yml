@@ -1,0 +1,9 @@
+name: rust_test
+on:
+  push:
+    branches:
+      - main
+jobs:
+  rust_test:
+    name: Rust Code Coverage
+    uses: Swatinem/fucov@v1.0.0
