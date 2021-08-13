@@ -1,7 +1,7 @@
 use colored::*;
 
 pub fn builtin_help() -> Result<(), String> {
-    println!("");
+    println!();
 
     println!("-! new to nysh shell? ");
     println!("-! nysh is just a cute shell written in rust!");
@@ -21,6 +21,6 @@ pub fn builtin_help() -> Result<(), String> {
     println!("-! {}: help nysh", "help".magenta());
     println!("-! {}: exit nysh", "exit".magenta());
 
-    println!("");
+    println!();
     Ok(())
 }

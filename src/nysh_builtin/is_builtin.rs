@@ -1,5 +1,5 @@
 // - check the given command is buildin or not
-pub fn is_builtin(command: &String) -> bool {
+pub fn is_builtin(command: &str) -> bool {
     let available = [
         "exit".to_string(),
         "la".to_string(),

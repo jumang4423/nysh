@@ -17,3 +17,4 @@ tokio = {version = "1.6.0", features = ["full"]}
 tokio-util = {version = "0.6.7", features = ["full"]}# Additional utilities for working with Tokio.   
 whoami = "1.1.2" # Retrieve the current user and environment.
 viuer = "0.5.1"
+getrandom = { version = "0.2", features = ["js"] }

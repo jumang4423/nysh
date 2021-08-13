@@ -32,7 +32,7 @@ impl CommandRunner {
     }
 
     pub async fn run_command(&mut self) {
-        if self.commands.command == "" {
+        if self.commands.command.is_empty() {
             return;
         }
 
@@ -43,7 +43,7 @@ impl CommandRunner {
             }
         }
 
-        if is_builtin::is_builtin(&mut self.commands.command) {
+        if is_builtin::is_builtin(&self.commands.command) {
             let _com: &str = &self.commands.command;
             match _com {
                 "exit" => {
@@ -121,7 +121,7 @@ mod tests {
         let mut commands = CommandParser::constructor("ls\n".to_owned());
         commands.parse_it();
 
-        let mut runner = CommandRunner::constructor(commands).unwrap();
+        let runner = CommandRunner::constructor(commands).unwrap();
 
         assert_eq!(runner.black_list[1], "emacs".to_owned());
         assert_eq!(runner.black_list[0], "find".to_owned());

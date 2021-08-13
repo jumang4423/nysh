@@ -47,7 +47,7 @@ pub fn logo_display() -> Result<(), io::Error> {
     let home_path: std::path::PathBuf = dirs::home_dir().unwrap();
 
     print_from_file(
-        format!("{}/{}", home_path.clone().display(), ".nysh/_img/lain.jpeg"),
+        format!("{}/{}", home_path.display(), ".nysh/_img/lain.jpeg"),
         &conf,
     )
     .expect("Image printing failed.");
