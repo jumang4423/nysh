@@ -25,7 +25,7 @@ pub fn builtin_nywer(args: Vec<String>) {
 
     print!("\x1B[2J\x1B[1;1H");
     match print_from_file(args[0].clone(), &conf) {
-        Ok(_) => println!(""),
+        Ok(_) => println!(),
         Err(_) => println!("no file detected."),
     }
 }

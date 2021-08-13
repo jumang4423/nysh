@@ -1,8 +1,8 @@
+use super::super::tools::parser::CommandParser;
+use super::super::tools::runner::CommandRunner;
 use std::fs;
 use std::io::*;
 use std::str::from_utf8;
-use super::super::tools::parser::CommandParser;
-use super::super::tools::runner::CommandRunner;
 
 pub async fn builtin_dream95() {
     let password = scan_me("? enter password (length<=6):");
@@ -16,7 +16,7 @@ pub async fn builtin_dream95() {
     fs::create_dir_all(&dir).unwrap();
     dft_folder_maker([].to_vec(), password.chars().count(), &dir);
 
-    println!("");
+    println!();
     // copy hentai file
     println!(
         "! {} folders were created.",
@@ -47,12 +47,12 @@ pub fn dft_folder_maker(array: Vec<u8>, count_mut: usize, dir: &String) {
                     .collect::<Vec<String>>()
                     .join("/");
             fs::create_dir_all(joined).unwrap();
-            dft_folder_maker(new_array, count_mut - 1, &dir);
+            dft_folder_maker(new_array, count_mut - 1, dir);
         }
     }
 }
 
-pub fn put_hentai(hentai_file: &String, dir: &String, password: &String) -> String {
+pub fn put_hentai(hentai_file: &str, dir: &str, password: &str) -> String {
     let joined: String = format!(
         "{}/{}/{}",
         dir,
@@ -79,7 +79,5 @@ pub fn scan_me(print_data: &str) -> String {
         .read_line(&mut _scaned_string)
         .expect("input error => ?");
 
-    _scaned_string =
-        String::from(from_utf8(&_scaned_string.replace("\n", "").into_bytes()).unwrap());
-    return _scaned_string;
+    String::from(from_utf8(&_scaned_string.replace("\n", "").into_bytes()).unwrap())
 }

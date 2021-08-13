@@ -6,28 +6,10 @@ use std::process::exit;
 use std::ffi::OsStr;
 use std::path::Path;
 
-// use std::fs::OpenOptions;
-// use std::os::unix::fs::{OpenOptionsExt, PermissionsExt};
-
-// const S_IFMT: usize = 0170000; /* type of file */
-// const S_IFIFO: usize = 0010000; /* named pipe (fifo) */
-// const S_IFCHR: usize = 0020000; /* character special */
-// const S_IFDIR: usize = 0040000; /* directory */
-// const S_IFBLK: usize = 0060000; /* block special */
-// const S_IFREG: usize = 0100000; /* regular */
-// const S_IFLNK: usize = 0120000; /* symbolic link */
-// const S_IFSOCK: usize = 0140000; /* socket */
-// const S_IFWHT: usize = 0160000; /* whiteout */
-// const S_ISUID: usize = 0004000; /* set user id on execution */
-// const S_ISGID: usize = 0002000; /* set group id on execution */
-// const S_ISVTX: usize = 0001000; /* save swapped text even after use */
-// const S_IRUSR: usize = 0000400; /* read permission, owner */
-// const S_IWUSR: usize = 0000200; /* write permission, owner */
-// const S_IXUSR: usize = 0000100; /* execute/search permission, owner */
 pub fn builtin_nsd(_args: Vec<String>) {
     let mut option: bool = false;
 
-    if _args.len() == 0 {
+    if _args.is_empty() {
         // nsd
         option = false;
     } else if _args.len() == 1 {

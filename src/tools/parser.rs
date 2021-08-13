@@ -29,7 +29,7 @@ impl CommandParser {
 
         if _isbeen_string {
           match n {
-            ' ' => return '_',
+            ' ' => '_',
             _ => n,
           }
         } else {
@@ -44,7 +44,7 @@ impl CommandParser {
     // remove space from original line
     self.strings_parse();
 
-    let mut _commands: Vec<&str> = self._oirinal_line.split(" ").collect();
+    let mut _commands: Vec<&str> = self._oirinal_line.split(' ').collect();
     self.command = _commands[self._where].to_string();
     self._where += 1;
 

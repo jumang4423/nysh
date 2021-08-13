@@ -60,9 +60,9 @@ pub fn path_abbr(path: String) -> Result<String, io::Error> {
         // filter nothing &str to char
         .map(|_temp| match _temp.chars().next() {
             Some(_) => {
-                return String::from(&_temp[0..1]); //&_temp[0.._temp.len() % 10 // original
+                String::from(&_temp[0..1]) //&_temp[0.._temp.len() % 10 // original
             }
-            None => return String::from(""),
+            None => String::from(""),
         })
         .collect();
 
@@ -95,7 +95,7 @@ fn check_folder_git() -> String {
             let mut git_head = File::open("./.git/HEAD").unwrap();
             let mut content = String::new();
             git_head.read_to_string(&mut content).unwrap();
-            let refs: Vec<&str> = content.split("/").collect();
+            let refs: Vec<&str> = content.split('/').collect();
             output = format!(
                 " → {}",
                 &refs[refs.len() - 1][..refs[refs.len() - 1].len() - 1]
@@ -104,5 +104,5 @@ fn check_folder_git() -> String {
         None => {}
     };
 
-    return output;
+    output
 }
