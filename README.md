@@ -26,18 +26,15 @@ a cute shell thingy that written in rust
 
 ## dependancies for build
 
-    - rust:nightly 
+    - cargo(rust)
 
 ## installation
 
 run this command below:
 
 ```bash
-chmod +x scripts/install.sh
-./scripts/install.sh
+cargo install --git https://github.com/jumang4423/nysh.git
 ```
-
-default, this script add path **both bash/zsh & fish**
 
 ## how to launch
 
@@ -107,25 +104,6 @@ to do that, export our slack webhook URL like this...
 DREAM95_SLACK_URL={your slack webhook url}
 ```
 
-
-## doesn't work? 
-try importing them into each shell settings:
-### bash | zsh
-
-``` ~/.profile ```
-
-```bash
-export PATH="~/.nysh" : "$PATH" 
-```
-
-### fish
-    
-``` ~/.config/fish/conf.d/nysh.fish```
-
-```bash
-set PATH ~/.nysh : "$PATH" 
-```
-
 ## development with a docker
 
 ### 1. launch the docker
@@ -143,21 +121,15 @@ sudo docker-compose exec nysh cargo run
 
 ## ビルドのための依存パッケージ
 
-    - rust:nightly 
+    - cargo (rust)
 
 ## インストール方法
 
 以下のコマンドを実行:
 
 ```bash
-chmod +x scripts/install.sh
-./scripts/install.sh
+cargo install --git https://github.com/jumang4423/nylang.git
 ```
-
-~/.nyshに実行可能バイナリが投棄されます
-
-デフォルトでは **bash zsh & fish** にパスが通ります
-
 ## 起動方法
 
 nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よって、その場所をパスに通すもしくは...
@@ -184,7 +156,7 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
 - ```dream95``` 
 
-　　秘密のフォルダーを作成
+    秘密のフォルダーを作成
 
 - ```nywer <filename>``` 
 
@@ -222,24 +194,6 @@ nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よ
 
 ```
 DREAM95_SLACK_URL={webhookのURL}
-```
-
-## 動きません！
-あなたのシェルに以下の記述を手動でおねがいします:
-### bash | zsh
-
-``` ~/.profile ```
-
-```bash
-export PATH="~/.nysh" : "$PATH" 
-```
-
-### fish
-    
-``` ~/.config/fish/conf.d/nysh.fish```
-
-```bash
-set PATH ~/.nysh : "$PATH" 
 ```
 
 ## ドッカーを使った開発

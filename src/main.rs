@@ -15,10 +15,41 @@ use std::process::exit;
 // - Emoji receiver usage
 use rand::thread_rng;
 use rand::Rng;
+use colored::*;
 
 // - main func
 #[tokio::main]
 async fn main() -> io::Result<()> {
+    // check nysh library is available on computer
+    match tools::fetch_lib::check_nysh_lib() {
+        Some(_nysh_path) => {
+            // nysh lib is not installed
+            println!(
+                "\n{}",
+                "-! oi! nysh resources is missing😭"
+                    .on_truecolor(150, 50, 50)
+                    .white()
+            );
+            match tools::fetch_lib::auto_install_lib() {
+                Ok(_) => {
+                    println!(
+                        "{}\n",
+                        "-o ready to use nysh!"
+                            .on_truecolor(50, 150, 50)
+                            .white()
+                    );
+                }
+                Err(_e) => {
+                    println!("\n{}", "-! installation skipped".on_truecolor(255, 0, 0));
+                    println!("{}\n", _e);
+                }
+            }
+        }
+        None => {
+            //ignoreing
+        }
+    }
+
     print!("\x1B[2J\x1B[1;1H");
 
     tools::welcome_uis::logo_display().unwrap_or_else(|err: std::io::Error| {
