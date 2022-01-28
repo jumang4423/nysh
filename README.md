@@ -1,7 +1,3 @@
-<!-- DO NOT REMOVE - contributor_list:data:start:["jumang4423", "ranon-rat"]:end -->
-
-<h1 align="center"> <a href="#english">english</a> |<a href="#japanese">日本語</a></h1>
-
 ![README LOGO](_img/bk.png)
 # nysh | nyu shell
 
@@ -10,23 +6,9 @@
 
 a cute shell thingy that written in rust
 
-<!-- prettier-ignore-start -->
-<!-- DO NOT REMOVE - contributor_list:start -->
-## 👥 Contributors
-
-
-- **[@jumang4423](https://github.com/jumang4423)**
-
-- **[@ranon-rat](https://github.com/ranon-rat)**
-
-<!-- DO NOT REMOVE - contributor_list:end -->
-<!-- prettier-ignore-end -->
-
-<h1 align="left" id="english"> 🇺🇸english<h1>
-
 ## dependancies for build
 
-    - cargo(rust)
+    - rust
 
 ## installation
 
@@ -37,8 +19,6 @@ cargo install --git https://github.com/jumang4423/nysh.git
 ```
 
 ## how to launch
-
-nysh will be installed into ~/.nysh, so path through it or...
 
 - ```nysh``` 
 
@@ -102,109 +82,4 @@ to do that, export our slack webhook URL like this...
 
 ```
 DREAM95_SLACK_URL={your slack webhook url}
-```
-
-## development with a docker
-
-### 1. launch the docker
-
-```bash
-# build go image
-sudo docker-compose build
-# launch image on background process
-sudo docker-compose up -d
-# exec go to command using docker envinroment
-sudo docker-compose exec nysh cargo run
-```
-
-<h1 align="left" id="japanese"> 🇯🇵日本語<h1>
-
-## ビルドのための依存パッケージ
-
-    - cargo (rust)
-
-## インストール方法
-
-以下のコマンドを実行:
-
-```bash
-cargo install --git https://github.com/jumang4423/nylang.git
-```
-## 起動方法
-
-nyshは自動的に~/.nyshに実行可能バイナリが投棄されます。よって、その場所をパスに通すもしくは...
-
-- ```nysh``` 
-
-    おてもとのシェルでこれを実行するとnyshが起動します
-
-## blacklisted commands
-
-- ```find```
-
-    to avoid the dream95 injection
-
-- ```emacs```
-
-    i dont use emacs so use vim intead!
-
-## nyshお手製コマンド
-
-- ```help``` 
-
-    ヘルプの表示
-
-- ```dream95``` 
-
-    秘密のフォルダーを作成
-
-- ```nywer <filename>``` 
-
-    displays given image on terminal directly
-
-- ```nsd``` 
-
-    lsの模擬品
-
-- ```l``` 
-
-    nsdのショートカットで普通に表示する
-
-- ```ll``` 
-
-    nsd lのショートカットで詳細を表示する
-
-- ```cd``` 
-
-    ディレクトリの変更
-
-- ```..``` 
-
-    ```cd ..```
-
-- ```exit``` 
-
-    安全にシェルを終了
-
-## slack通知
-
-誰かがシークレットフォルダーにnyshを使って侵入した場合、webhookを利用して通知をしてくれます！
-
-そうするためには以下のコマンドを実行してください...
-
-```
-DREAM95_SLACK_URL={webhookのURL}
-```
-
-## ドッカーを使った開発
-
-### 1. ドッカーを立ち上げます
-
-```bash
-# イメージをビルド
-sudo docker-compose build
-# バックグラウンドでイメージを立ち上げる
-sudo docker-compose up -d
-# go run *.go をコンテナ内で実行する
-sudo docker-compose exec nysh cargo run
 ```
